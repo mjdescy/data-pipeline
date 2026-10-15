@@ -2,4 +2,7 @@
   <Folder Name="/src/">
     <Project Path="src/DataCall.Core/DataCall.Core.csproj" />
   </Folder>
+  <Folder Name="/tests/DataCall.Core.Tests/">
+    <Project Path="tests/DataCall.Core.Tests/DataCall.Core.Tests/DataCall.Core.Tests.csproj" />
+  </Folder>
 </Solution>

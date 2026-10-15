@@ -1,0 +1,7 @@
+<Project>
+  <PropertyGroup>
+    <DebugSymbols>false</DebugSymbols>
+    <DebugType>None</DebugType>
+    <PublishSingleFile Condition="'$(IsTestProject)' != 'true' and '$(OutputType)' == 'Exe'">true</PublishSingleFile>
+  </PropertyGroup>
+</Project>

@@ -38,3 +38,28 @@ Offer tools to use for use in data pipelines, specializing in the work that happ
 - logging
     - to text files
     - to database tables
+
+## Manifest model
+
+A manifest identifies a named set of files. Each file uses a repository-relative
+path so the manifest remains portable between machines, plus its length, UTC
+last-write time, optional content type, and a hash with its algorithm explicitly
+specified.
+
+```csharp
+using DataCall.Core;
+
+var manifest = new Manifest(
+    Name: "daily-import",
+    Version: "1",
+    CreatedAtUtc: DateTimeOffset.UtcNow,
+    Files:
+    [
+        new ManifestFile(
+            RelativePath: "incoming/customers.csv",
+            Length: 42_108,
+            LastWriteTimeUtc: new DateTimeOffset(2026, 10, 15, 0, 0, 0, TimeSpan.Zero),
+            Hash: new ManifestFileHash("SHA-256", "a1b2c3d4..."),
+            ContentType: "text/csv")
+    ]);
+```

@@ -1,0 +1,28 @@
+// For format details, see https://aka.ms/devcontainer.json. For config options, see the
+// README at: https://github.com/devcontainers/templates/tree/main/src/dotnet
+{
+    "name": "C# (.NET)",
+    "image": "mcr.microsoft.com/devcontainers/dotnet:10.0",
+    "remoteUser": "vscode",
+    "features": {
+        "ghcr.io/devcontainers-extra/features/micro:1": {},
+    },
+    "postCreateCommand": "bash -o pipefail -c 'curl -fsSL https://opencode.ai/v2/install | bash -s -- --no-modify-path'",
+    "mounts": [],
+    "customizations": {
+        "vscode": {
+            "extensions": [
+                "ms-dotnettools.csdevkit",
+                "ms-dotnettools.vscode-dotnet-runtime",
+                "GitHub.copilot",
+                "GitHub.copilot-chat",
+            ],
+        }
+    },
+    "remoteEnv": {
+        "PATH": "${containerEnv:PATH}:/home/vscode/.opencode/bin",
+        "EDITOR": "micro",
+        "VISUAL": "micro",
+        "GIT_EDITOR": "micro"
+    }
+}
